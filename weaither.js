@@ -7,8 +7,18 @@ const liveWeaither = city =>{
 
 }
 const loadData = (weather)=>{
+    // console.log(weather);
+    const city = document.getElementById('tempUi');
+    city.innerText = weather.main.temp ;
     
-    const city = document.getElementById('cityUi')
-    
+    const cloud = document.getElementById('clouds');
+    cloud.innerText = weather.weather[0].main
 }
+
+document.getElementById('search-btn').addEventListener('click', function(){
+    const searchField = document.getElementById('search-field');
+    const fieldValue = searchField.value;
+    liveWeaither(fieldValue)
+})
+
 liveWeaither('dhaka')
